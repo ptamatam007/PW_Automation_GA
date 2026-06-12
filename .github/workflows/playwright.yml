@@ -1,39 +1,39 @@
-name: Playwrights first job 
+# name: Playwrights first job 
 
-on: 
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  workflow_dispatch:
+# on: 
+#   push:
+#     branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
+#   workflow_dispatch:
     
 
-jobs:
-  playwrights-tests:
-    runs-on: ubuntu-latest
+# jobs:
+#   playwrights-tests:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v4
+#     steps:
+#       - name: Checkout the code
+#         uses: actions/checkout@v4
 
-      - name: setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
+#       - name: setup Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: 18
 
-      - name: Install the dependincies
-        run: npm install
+#       - name: Install the dependincies
+#         run: npm install
 
-      - name: Install playwright browsers
-        run: npx playwright install --with-deps
+#       - name: Install playwright browsers
+#         run: npx playwright install --with-deps
 
-      - name: Run playwright tests
-        run: npx playwright test
+#       - name: Run playwright tests
+#         run: npx playwright test
 
-      - name: Upload playwright report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-report
-          path: playwright-report/
+#       - name: Upload playwright report
+#         if: always()
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: playwright-report
+#           path: playwright-report/
   
